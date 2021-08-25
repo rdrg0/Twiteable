@@ -1,0 +1,38 @@
+<div class="container">
+
+  <!--tweet-->
+  <%= form model: @tweet do |form| %>
+    <div>
+      <%= image_tag("thanos_avatar.jpg") %>
+    </div>
+    <div>
+      <%= form.label :name %>
+    </div>
+    <div>
+      <%= form.label :username %>
+    </div>
+    <div>
+      <%= form.label :created_by %>
+    </div>
+    <div>
+      <%= form.label :body %>
+    </div>
+    <div>
+      <%= form.label :replies_count %>
+    </div>
+    <div>
+      <%= form.label :likes_count %>
+    </div>
+  <% end %>
+
+<!--reply form-->
+  <%= form model: @tweet do |form| %>
+    <div>
+      <%= form.text_area :body %>
+    </div>
+    <div>
+      <%= form.submit %> 
+    </div>
+  <% end %>
+<!--replies list-->
+</div>

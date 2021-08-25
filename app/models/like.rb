@@ -1,4 +1,6 @@
 class Like < ApplicationRecord
   belongs_to :user
-  belongs_to :tweet
+  belongs_to :tweet, counter_cache: true
+
+  validates :user_id, uniqueness: { scope: :tweet_id, message: "can't like a tweet twice" }
 end

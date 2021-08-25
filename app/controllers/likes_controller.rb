@@ -1,7 +1,22 @@
 class LikesController < ApplicationController
-  def create; end
+  def create
+    @tweet = Tweet.find(params[:tweet_id])
+    @like = @tweet.likes.create(user_id)
+  end
 
-  def destroy; end
+  def destroy
+    if alredy_liked
+      flash[:notice] = 'Cannot unlike'
+    else
+      @like.destroy
+    end
+  end
 
   def index; end
+
+  private
+
+  def alredy_liked
+    Like.exist?(user_id: current_user.id, tweet_id: params[:tweet_id])
+  end
 end

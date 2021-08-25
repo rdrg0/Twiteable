@@ -8,5 +8,7 @@ class Tweet < ApplicationRecord
                      dependent: :nullify,
                      inverse_of: 'replied_to'
 
+  has_many :likes, dependent: :destroy
+
   validates :body, presence: true, length: { maximum: 140 }
 end

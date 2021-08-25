@@ -1,7 +1,13 @@
 class LikesController < ApplicationController
   def create
-    @tweet = Tweet.find(params[:tweet_id])
-    @like = @tweet.likes.create(user_id)
+    if current_user.nil?
+      redirect_to index_path
+    elsif alredy_liked
+      flash[:notice] = 'You cannot like two times or more'
+    else
+      @tweet = Tweet.find(params[:tweet_id])
+      @like = @tweet.likes.create(user_id)
+    end
   end
 
   def destroy

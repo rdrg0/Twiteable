@@ -16,10 +16,6 @@ class TweetsController < ApplicationController
   end
 end
 
-# def create
-#   user = User.first  # current_user
-# end
-
 private
 
 def tweet_params

@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 <h2 class="heading heading--sm">Home</h2>
 
 
@@ -11,6 +10,11 @@
 <% end %>
 
 <% @tweets.reverse.each do |tweet| %>
+
+
+
+  <div class="card">
+  </div>
     <div>
       <%= image_tag(tweet.user.avatar) %>
     </div>
@@ -33,8 +37,3 @@
       <%= tweet.likes_count %>
     </div>
   <% end %>
-=======
-<% @tweets.each do |tweet| %>
-<p><%= tweet.body %></p>
-<% end %>
->>>>>>> main

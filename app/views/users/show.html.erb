@@ -13,35 +13,62 @@
 
   <div>
     <div>
-      <label>Tweets</label>
+      <h2>Tweets</h2>
       <% @user.tweets.each do |tweet|%>
         <div>
           <%if tweet.user.avatar.attached?%>
-              <% image_tag(tweet.user.avatar, class: 'imagen en circular tamaño pequeño')%>
+              <%=image_tag(tweet.user.avatar, class: 'imagen en circular tamaño pequeño')%>
           <% else%>
-              <% image_tag('Imageanonymus.png', class: 'imagen en circular tamaño pequeño')%>
+              <%= image_tag('Imageanonymus.png', class: 'imagen en circular tamaño pequeño')%>
           <% end%>
-          <div>
-            <div><%= @user.name + " @" + @user.nickname %></div>
-            <div><%= time_ago_in_words(tweet.updated_at)%></div>
-          </div>
-          <div>
-            <p><%= tweet.body %></p>
-          </div>
-          <div>
+          <%= link_to tweet_path(tweet) do %>
             <div>
-              <%= button_to like_path, method: :deletedo %>
-                <%= image_tag 'icons/trash.svg' %>
+              <div><%= @user.username + " @" + @user.name %></div>
+              <div><%= time_ago_in_words(tweet.updated_at)%></div>
             </div>
             <div>
-
+              <p><%= tweet.body %></p>
+            </div>
+          <%end%>
+          <div>
+            <div>
+              <%= link_to user_like_path(tweet), method: :delete do %>
+                <%= image_tag 'Icontrash.svg' %>
+              <% end %>
+            </div>
+            <div>
+              <%= link_to edit_user_like_path(tweet), method: :patch do %>
+                <%= image_tag 'Iconpencil.svg' %>
+              <% end %>
+            </div>
+          </div>
+            <div>
+              <div>
+                <%= link_to tweet_path(tweet) do %>
+                  <%= image_tag 'Iconmessage.svg' %>
+                <% end %>
+                <%= tweet.replies_count || 0 %>
+              </div>
+              <div>
+                <%= link_to tweet_likes_path(tweet), method: :post do %>
+                  <% if current_user.liked_tweets.include? tweet %>
+                    <%= image_tag 'Iconlikes_toggle.svg' %>
+                  <% else %>
+                  <%= image_tag 'Iconlikes.svg' %>
+                  <%end%>
+                <% end %>
+                <%= tweet.likes.count || 0 %>
+              </div>
             </div>
           </div>
         </div>
-        <%end%>
-
-        
-    <div>Likes</div>
+      <%end%>
+      
+      <br>
+      
+      <div>
+        <h2><%=link_to 'Likes', user_likes_path(@user)%></h2>
+      </div>
   </div>
 </div>
 

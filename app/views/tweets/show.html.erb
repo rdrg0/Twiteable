@@ -1,0 +1,62 @@
+<div class="container">
+
+  <!--tweet-->
+  <%= form_with model: @tweet do |form| %>
+    <div>
+      <%= image_tag("Imagethanos.png") %>
+    </div>
+    <div>
+      <%= @tweet.user.name %>
+    </div>
+    <div>
+      <%= @tweet.user.username %>
+    </div>
+    <div>
+      <%= @tweet.created_at%>
+    </div>
+    <div>
+      <%= @tweet.body %>
+    </div>
+    <div>
+      <%= @tweet.replies_count %>
+    </div>
+    <div>
+      <%= @tweet.likes_count %>
+    </div>
+  <% end %>
+
+<!--reply form-->
+  <%= form_with model: @new_tweet do |form| %>
+    <div>
+      <%= form.text_area :body %>
+    </div>
+    <div>
+      <%= form.submit %> 
+    </div>
+  <% end %>
+
+<!--replies list-->
+  <%= @tweet.replies.each do |tweet| %>
+    <div>
+      <%= image_tag("Imagethanos.png") %>
+    </div>
+    <div>
+      <%= tweet.user.name %>
+    </div>
+    <div>
+      <%= tweet.user.username %>
+    </div>
+    <div>
+      <%= tweet.created_at%>
+    </div>
+    <div>
+      <%= tweet.body %>
+    </div>
+    <div>
+      <%= tweet.replies_count %>
+    </div>
+    <div>
+      <%= tweet.likes_count %>
+    </div>
+  <% end %>
+</div>

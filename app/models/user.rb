@@ -35,4 +35,5 @@ class User < ApplicationRecord
     authentication.save if @user.persisted?
   end
   # rubocop:enable Metrics/AbcSize
+  has_one_attached :avatar
 end

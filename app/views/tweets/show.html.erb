@@ -1,7 +1,6 @@
 <div class="container">
 
   <!--tweet-->
-  <%= form_with model: @tweet do |form| %>
     <div>
       <%= image_tag("Imagethanos.png") %>
     </div>
@@ -9,22 +8,23 @@
       <%= @tweet.user.name %>
     </div>
     <div>
-      <%= @tweet.user.username %>
+      <%= "@" + @tweet.user.username %>
     </div>
     <div>
-      <%= @tweet.created_at%>
+      <%= time_ago_in_words(@tweet.created_at) + " ago"%>
     </div>
     <div>
       <%= @tweet.body %>
     </div>
     <div>
-      <%= @tweet.replies_count %>
+      <%= @tweet.replies_count || 0 %>
     </div>
     <div>
-      <%= @tweet.likes_count %>
+      <%= @tweet.likes_count || 0 %>
     </div>
-  <% end %>
 
+    <hr>
+    
 <!--reply form-->
   <%= form_with model: @new_tweet do |form| %>
     <div>
@@ -36,18 +36,18 @@
   <% end %>
 
 <!--replies list-->
-  <%= @tweet.replies.each do |tweet| %>
+  <% @tweet.replies.each do |tweet| %>
     <div>
-      <%= image_tag("Imagethanos.png") %>
+      <%= image_tag(tweet.user.avatar) %>
     </div>
     <div>
       <%= tweet.user.name %>
     </div>
     <div>
-      <%= tweet.user.username %>
+      <%= "@" + @tweet.user.username %>
     </div>
     <div>
-      <%= tweet.created_at%>
+      <%= time_ago_in_words(@tweet.created_at) + " ago"%>
     </div>
     <div>
       <%= tweet.body %>
@@ -59,4 +59,3 @@
       <%= tweet.likes_count %>
     </div>
   <% end %>
-</div>

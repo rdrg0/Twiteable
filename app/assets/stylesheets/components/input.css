@@ -52,6 +52,11 @@
   color: var(--gray-200);
 }
 
+.input__container textarea {
+  height: 74px;
+  resize: none;  
+}
+
 .input__container:focus-within {
   box-shadow: var(--shadow-input--primary);
   border: 1px solid var(--primary-300);

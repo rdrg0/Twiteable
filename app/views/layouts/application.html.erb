@@ -7,9 +7,44 @@
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
-  <body>
-    <p class="notice"><%= notice %></p>
-    <p class="alert"><%= alert %></p>
-    <%= yield %>
+  <body class="container">
+    <nav id="navbar" class="bg-gray-100 flex" role="navigation">
+      
+        <div><%= image_tag("logo.png")%></div>
+        <div id="menuToggle">
+          <input type="checkbox" />
+          <span></span>
+          <span></span>
+          <span></span>
+          <div id="menu">           
+            
+            
+            <div><%= link_to "Profile", '#', class: "navbar__link justify-center" %></div>
+            
+              <% if user_signed_in? %>
+                <div class="flex  justify-center ">
+                <%= link_to 'Logout', destroy_user_session_path, method: :delete, class: "btn btn--secondary width-85" %>
+                </div>
+              <% else %>
+                <div class="flex  justify-center ">
+                <%= link_to 'Login', new_user_session_path, class: "btn auth-btn btn--secondary width-70" %>
+                </div>
+                <div class="flex  justify-center ">
+                <%= link_to 'Sign Up', new_user_registration_path, class: "btn auth-btn btn--primary width-90" %>
+                </div>
+              <% end %>
+
+          </div>
+        </div>
+        
+    </nav>
+<% if notice %>
+      <p class="alert alert-success"><%= notice %></p>
+    <% end %>
+    <% if alert %>
+      <p class="alert alert-danger"><%= alert %></p>
+<% end %>
+    
+<%= yield %>
   </body>
 </html>

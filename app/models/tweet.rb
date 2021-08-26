@@ -9,6 +9,7 @@ class Tweet < ApplicationRecord
                      inverse_of: 'replied_to'
 
   has_many :likes, dependent: :destroy
+  has_many :users_likes, through: :likes, source: :user
 
   validates :body, presence: true, length: { maximum: 140 }
 end

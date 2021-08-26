@@ -1,6 +1,5 @@
 <h2 class="heading heading--sm">Home</h2>
 
-
 <%= form_with model: [@user, Tweet.new] do |form| %>
     <div class="input__container flex-col bg-white">
       <%= form.hidden_field :user_id, value: @user.id %>

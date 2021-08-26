@@ -49,11 +49,11 @@
 }
 
 .mt-8 {
-  margin-top: 10px;
+  margin-top: 8px;
 }
 
 .mt-10 {
-  margin-top: 8px;
+  margin-top: 10px;
 }
 
 .mb-8 {
@@ -92,6 +92,11 @@
 .p-0 {
   padding: 0;
 }
+
+.p-16 {
+  padding: 16px;
+}
+
 .pl-32 {
   padding-left: 32px;
 }

@@ -1,28 +1,27 @@
 class LikesController < ApplicationController
+  # rubocop:disable Metrics/AbcSize
   def create
     if current_user.nil?
-      redirect_to index_path
-    elsif alredy_liked
-      flash[:notice] = 'You cannot like two times or more'
+      redirect_to root_path
+    elsif already_liked
+      @like = Like.where(user_id: current_user.id, tweet_id: params[:tweet_id]).first
+      @like.delete
     else
       @tweet = Tweet.find(params[:tweet_id])
-      @like = @tweet.likes.create(user_id)
+      @like = @tweet.likes.create(user_id: current_user.id)
     end
+    redirect_to request.referer
   end
 
-  def destroy
-    if alredy_liked
-      flash[:notice] = 'Cannot unlike'
-    else
-      @like.destroy
-    end
+  # rubocop:enable Metrics/AbcSize
+  def index
+    @user = User.find(params[:user_id])
+    @tweets = @user.liked_tweets
   end
-
-  def index; end
 
   private
 
-  def alredy_liked
-    Like.exist?(user_id: current_user.id, tweet_id: params[:tweet_id])
+  def already_liked
+    Like.exists?(user_id: current_user.id, tweet_id: params[:tweet_id])
   end
 end

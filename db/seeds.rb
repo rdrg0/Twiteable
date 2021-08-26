@@ -39,7 +39,7 @@ reply = Tweet.create(body:"Lorem Ipsum is simply dummy text of the printing and 
 reply = Tweet.create(body:"Lorem Ipsum is simply dummy text of the printing and typesetting industry.", user_id:4, replied_to_id:3 )
 
 puts "Seeding likes"
-like = Like.create(user_id:2, tweet_id:2)
-like = Like.create(user_id:2, tweet_id:3)
+like = Like.create(user_id: User.first.id, tweet_id:2)
+like = Like.create(user_id:1, tweet_id:3)
 like = Like.create(user_id:3, tweet_id:3)
 like = Like.create(user_id:4, tweet_id:2)

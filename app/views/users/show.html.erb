@@ -1,2 +1,48 @@
-<h1>User#show</h1>
-<%= image_tag @user.avatar %>
+<div>
+  <div>
+    <h1>Profile</h1>
+  </div>
+
+  <div>
+    <p><%= image_tag @user.avatar %></p>
+    <p><%= @user.username %></p>
+    <p><%= "@" + @user.name %></p>
+    <p><%= "Joined on " + I18n.l(@user.created_at, format: '%B, %d de %Y') %></p>
+    <%= link_to 'Edit Profile', edit_user_registration_path%>
+  </div>
+
+  <div>
+    <div>
+      <label>Tweets</label>
+      <% @user.tweets.each do |tweet|%>
+        <div>
+          <%if tweet.user.avatar.attached?%>
+              <% image_tag(tweet.user.avatar, class: 'imagen en circular tamaño pequeño')%>
+          <% else%>
+              <% image_tag('Imageanonymus.png', class: 'imagen en circular tamaño pequeño')%>
+          <% end%>
+          <div>
+            <div><%= @user.name + " @" + @user.nickname %></div>
+            <div><%= time_ago_in_words(tweet.updated_at)%></div>
+          </div>
+          <div>
+            <p><%= tweet.body %></p>
+          </div>
+          <div>
+            <div>
+              <%= button_to like_path, method: :deletedo %>
+                <%= image_tag 'icons/trash.svg' %>
+            </div>
+            <div>
+
+            </div>
+          </div>
+        </div>
+        <%end%>
+
+        
+    <div>Likes</div>
+  </div>
+</div>
+
+

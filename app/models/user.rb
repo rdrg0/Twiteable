@@ -11,6 +11,7 @@ class User < ApplicationRecord
 
   has_many :tweets, dependent: :destroy
   has_many :likes, dependent: :destroy
+  has_many :liked_tweets, through: :likes, source: :tweet
   has_many :authentications, dependent: :destroy
 
   # rubocop:disable Metrics/AbcSize

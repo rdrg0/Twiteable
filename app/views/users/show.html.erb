@@ -13,35 +13,46 @@
 
   <div>
     <div>
-      <label>Tweets</label>
+      <h2>Tweets</h2>
       <% @user.tweets.each do |tweet|%>
         <div>
           <%if tweet.user.avatar.attached?%>
-              <% image_tag(tweet.user.avatar, class: 'imagen en circular tamaño pequeño')%>
+              <%=image_tag(tweet.user.avatar, class: 'imagen en circular tamaño pequeño')%>
           <% else%>
-              <% image_tag('Imageanonymus.png', class: 'imagen en circular tamaño pequeño')%>
+              <%= image_tag('Imageanonymus.png', class: 'imagen en circular tamaño pequeño')%>
           <% end%>
-          <div>
-            <div><%= @user.name + " @" + @user.nickname %></div>
-            <div><%= time_ago_in_words(tweet.updated_at)%></div>
-          </div>
-          <div>
-            <p><%= tweet.body %></p>
-          </div>
+          <%= link_to tweet_path(tweet) do %>
+            <div>
+              <div><%= @user.username + " @" + @user.name %></div>
+              <div><%= time_ago_in_words(tweet.updated_at)%></div>
+            </div>
+            <div>
+              <p><%= tweet.body %></p>
+            </div>
+          <%end%>
           <div>
             <div>
-              <%= button_to like_path, method: :deletedo %>
-                <%= image_tag 'icons/trash.svg' %>
+              <%= link_to like_path(tweet), method: :delete do %>
+                <%= image_tag 'Icontrash.svg' %>
+              <% end %>
+            </div>
+            <div>
+              <%= link_to edit_like_path(tweet), method: :patch do %>
+                <%= image_tag 'Iconpencil.svg' %>
+              <% end %>
             </div>
             <div>
 
             </div>
           </div>
         </div>
-        <%end%>
-
-        
-    <div>Likes</div>
+      <%end%>
+      
+      <br>
+      
+      <div>
+        <h2><%=link_to 'Likes', user_likes_path(@user)%></h2>
+      </div>
   </div>
 </div>
 

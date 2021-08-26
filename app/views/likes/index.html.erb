@@ -1,0 +1,25 @@
+<div>
+  <h2>Likes</h2>
+  <% @user.liked_tweets.each do |tweet|%>
+    <div>
+      <%= params %>
+      <%= link_to user_show_path(tweet.user) do %>
+        <%if tweet.user.avatar.attached?%>
+            <%= image_tag(tweet.user.avatar, class: 'imagen en circular tamaño pequeño')%>
+        <% else%>
+            <%= image_tag('Imageanonymus.png', class: 'imagen en circular tamaño pequeño')%>
+        <% end%>
+      <%end%>
+      <%= link_to tweet_path(tweet) do %>
+        <div>
+          <div><%= tweet.user.username + " @" + tweet.user.name %></div>
+          <div><%= time_ago_in_words(tweet.updated_at)%></div>
+        </div>
+        <div>
+          <p><%= tweet.body %></p>
+        </div>
+      <%end%>
+      </div>
+    </div>
+  <%end%>
+</div>

@@ -1,5 +1,4 @@
 class UsersController < ApplicationController
-
   # GET /users/:id
   def show
     @user = User.find(params[:id])
@@ -41,7 +40,7 @@ class UsersController < ApplicationController
 
   # Only allow a list of trusted parameters through.
   def user_params
-    params.require(:user).permit(:username, :email, :name,
-                                :password, :password_confirmation)
+    params.require(:user).permit(:username, :email, :name, :avatar,
+                                 :password, :password_confirmation)
   end
 end

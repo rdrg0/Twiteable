@@ -1,3 +1,34 @@
-<% @tweets.each do |tweet| %>
-<p><%= tweet.body %></p>
+<h2 class="heading heading--sm">Home</h2>
+
+
+<%= form_with model: [@user, Tweet.new] do |form| %>
+    <div class="input__container flex-col bg-white">
+      <%= form.hidden_field :user_id, value: @user.id %>
+      <%= form.text_area :body, placeholder: "Remember to think before you write" , class:'input__content' %>
+      <%= form.submit "Tweet", class: 'btn btn--primary ml-auto' %>
+    </div>    
 <% end %>
+
+<% @tweets.reverse.each do |tweet| %>
+    <div>
+      <%= image_tag(tweet.user.avatar) %>
+    </div>
+    <div>
+      <%= tweet.user.name %>
+    </div>
+    <div>
+      <%= "@" + tweet.user.username %>
+    </div>
+    <div>
+      <%= time_ago_in_words(tweet.created_at) + " ago"%>
+    </div>
+    <div>
+      <%= tweet.body %>
+    </div>
+    <div>
+      <%= tweet.replies_count %>
+    </div>
+    <div>
+      <%= tweet.likes_count %>
+    </div>
+  <% end %>

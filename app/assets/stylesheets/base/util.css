@@ -7,6 +7,10 @@
   background-color: var(--primary-300);
 }
 
+.bg-secondary-300 {
+  background-color: var(--secondary-300);
+}
+
 .bg-primary-100 {
   background-color: var(--primary-100);
 }
@@ -31,30 +35,187 @@
 .gray-300 {
   color: var(--gray-300);
 }
+.gray-400 {
+  color: var(--gray-400);
+}
 
 .error-300 {
   color: var(--error-300);
 }
 
 /* Margins */
+.mt-16 {
+  margin-top: 16px;
+}
+
+.mt-8 {
+  margin-top: 10px;
+}
+
+.mt-10 {
+  margin-top: 8px;
+}
+
 .mb-8 {
   margin-bottom: 8px;
 }
 
 .mb-4 {
+  margin-bottom: 4px;
+}
+
+.mb-8 {
   margin-bottom: 8px;
+}
+
+.mb-24 {
+  margin-bottom: 24px;
 }
 
 .mb-40 {
   margin-bottom: 40px;
 }
 
+.mb-16 {
+  margin-bottom: 16px;
+}
+
+.pb-16 {
+  padding-bottom: 16px;
+}
+
+.pt-8 {
+  padding-top: 8px;
+}
+
 /* Paddings */
 .p-0 {
   padding: 0;
+}
+.pl-32 {
+  padding-left: 32px;
+}
+.pr-32 {
+  padding-right: 32px;
 }
 
 /* Text styling */
 .text-left {
   text-align: left;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.relative {
+  position: relative;
+}
+
+.full-width {
+  width: 100%;
+  height: auto;
+}
+.width-40 {
+  width: 40%;
+}
+.width-60 {
+  width: 60%;
+}
+
+.input-width {
+  width: 328px;
+  height: 40px;
+}
+
+.height_136 {
+  height: 136px;
+}
+
+.height_128 {
+  height: 128px;
+}
+
+.order_row {
+  display: flex;
+}
+
+.game--image {
+  width: 120px;
+  display: block;
+  max-width: 100%;
+  height: 160px;
+}
+
+.game--description {
+  width: 192px;
+  height: 64px;
+}
+
+.short__text {
+  width: 230px;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
+
+.box--rating {
+  width: 42px;
+  height: 32px;
+  border-radius: 4px;
+  color: white;
+  padding: 4px;
+}
+
+.flex-gap {
+  display: inline-flex;
+  flex-wrap: wrap;
+}
+
+.float-left {
+  float: left;
+}
+
+.width-120 {
+  width: 120px;
+}
+
+.width-90 {
+  width: 90px;
+}
+
+.width-70 {
+  width: 70px;
+}
+
+.mt-24 {
+  margin-top: 24px;
+}
+
+.pt-24 {
+  padding-top: 24px;
+}
+
+.pt-16 {
+  padding-top: 16px;
+}
+
+.pb-16 {
+  padding-bottom: 16px;
+}
+
+.solid-hr {
+  border-top: 2px solid #a8a8a8;
+}
+
+.sign-in-container {
+  background: #ffffff;
+  /* gray-100 */
+  border: 1px solid #f2f2f2;
+  box-sizing: border-box;
+
+  /* shadow/base */
+  box-shadow: 0px 4px 6px -1px rgba(0, 0, 0, 0.1),
+    0px 2px 4px -1px rgba(0, 0, 0, 0.06);
+  border-radius: 8px;
 }

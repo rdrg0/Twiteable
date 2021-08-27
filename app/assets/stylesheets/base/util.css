@@ -224,3 +224,11 @@
     0px 2px 4px -1px rgba(0, 0, 0, 0.06);
   border-radius: 8px;
 }
+
+.heading--profile {
+  font-family: var(--secondary-font);
+  font-size: 20px;
+  line-height: 28px;
+  font-weight: 600;
+  color: var(--gray-400);
+}

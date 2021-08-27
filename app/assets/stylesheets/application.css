@@ -21,6 +21,7 @@
  @import "./components/input.css";
  @import "./components/forms.css";
  @import "./components/flash.css";
+ @import "./components/tweet.css";
  
  
  body {
@@ -187,17 +188,18 @@
  {
    position: absolute;
    width: 360px;
-   left: -312px;
+   left: -328px;
    padding: 50px;
    list-style-type: none;
    transform-origin: 0% 0%;
    
    
-   transform: translate(0, -100% );
+   transform: translate(0, -150% );
    background-color: var(--gray-100);
    transition: transform 0.5s cubic-bezier(0.77,0.2,0.05,1.0);
-   border: 2px solid #D3D3D3;
-   opacity: 0;
+   border: 1px solid var(--gray-200);
+   box-shadow: var(--shadow-xl);
+   opacity: 1;
  
  }
  

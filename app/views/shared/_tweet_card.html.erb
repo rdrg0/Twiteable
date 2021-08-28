@@ -53,7 +53,7 @@
               </div>
               <div class="content-row ai-center">
                 <%= link_to tweet_likes_path(tweet), method: :post do %>
-                  <% if current_user.liked_tweets.include? tweet %>
+                  <% if current_user && current_user.liked_tweets.include?(tweet) %>
                     <%= image_tag 'Iconlikes_toggle.svg' %>
                   <% else %>
                   <%= image_tag 'Iconlikes.svg' %>

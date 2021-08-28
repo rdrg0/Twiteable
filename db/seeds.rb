@@ -5,6 +5,10 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+
+require 'faker'
+
+
 User.destroy_all
 Tweet.destroy_all
 Like.destroy_all
@@ -23,23 +27,25 @@ user = User.create(username: "david", name: "david", role: 1, email: "david@test
 user.avatar.attach(io: File.open('app/assets/images/Imagethanos.png'), filename: 'Imagethanos.png')
 user.save
 
+users = User.all
+
 puts "Seeding tweets"
-tweet= Tweet.create(body:"Lorem Ipsum is simply dummy text of the printing and typesetting industry.", user_id:2 )
-tweet= Tweet.create(body:"Lorem Ipsum is simply dummy text of the printing and typesetting industry.", user_id:2 )
-tweet= Tweet.create(body:"Lorem Ipsum is simply dummy text of the printing and typesetting industry.", user_id:2 )
-tweet= Tweet.create(body:"Lorem Ipsum is simply dummy text of the printing and typesetting industry.", user_id:2 )
-tweet= Tweet.create(body:"Lorem Ipsum is simply dummy text of the printing and typesetting industry.", user_id:3 )
-tweet= Tweet.create(body:"Lorem Ipsum is simply dummy text of the printing and typesetting industry.", user_id:3 )
-tweet= Tweet.create(body:"Lorem Ipsum is simply dummy text of the printing and typesetting industry.", user_id:4 )
+10.times do
+  Tweet.create( body:Faker::TvShows::SiliconValley.quote, user_id:users.sample.id )
+end
+
+tweets = Tweet.all
 
 puts "Seeding replies"
-reply = Tweet.create(body:"Lorem Ipsum is simply dummy text of the printing and typesetting industry.", user_id:2, replied_to_id:1 )
-reply = Tweet.create(body:"Lorem Ipsum is simply dummy text of the printing and typesetting industry.", user_id:3, replied_to_id:1 )
-reply = Tweet.create(body:"Lorem Ipsum is simply dummy text of the printing and typesetting industry.", user_id:4, replied_to_id:2 )
-reply = Tweet.create(body:"Lorem Ipsum is simply dummy text of the printing and typesetting industry.", user_id:4, replied_to_id:3 )
+20.times do
+  Tweet.create(body:Faker::TvShows::SiliconValley.quote, user_id:users.sample.id, replied_to_id:tweets.sample.id )
+end
+
+tweets = Tweet.all
 
 puts "Seeding likes"
-like = Like.create(user_id: User.first.id, tweet_id:2)
-like = Like.create(user_id:1, tweet_id:3)
-like = Like.create(user_id:3, tweet_id:3)
-like = Like.create(user_id:4, tweet_id:2)
+
+20.times do
+  like = Like.create(user_id: users.sample.id, tweet_id:tweets.sample.id)
+end
+  

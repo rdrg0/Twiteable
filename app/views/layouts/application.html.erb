@@ -12,7 +12,12 @@
   <div class="container bg-gray-100 shadow border-r">
     <nav id="navbar" class="flex" role="navigation">
       
-        <div><%= image_tag("logo.png")%></div>
+        <div>
+          <%= link_to root_path do %>
+            <%= image_tag("logo.png")%>
+          <% end %>
+        </div>        
+        
         <div id="menuToggle">
           <input type="checkbox" />
           <span></span>

@@ -15,6 +15,8 @@ class TweetsController < ApplicationController
     @tweet.save
     redirect_to request.referer
   end
+
+  def edit; end
 end
 
 private

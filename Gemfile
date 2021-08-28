@@ -37,6 +37,7 @@ end
 gem 'dotenv-rails'
 gem 'omniauth-github', github: 'omniauth/omniauth-github', branch: 'master'
 gem 'omniauth-rails_csrf_protection'
+gem 'pundit'
 
 group :development do
   # Access an interactive console on exception pages or by calling 'console' anywhere in the code.

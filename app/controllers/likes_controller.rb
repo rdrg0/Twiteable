@@ -2,15 +2,15 @@ class LikesController < ApplicationController
   # rubocop:disable Metrics/AbcSize
   def create
     if current_user.nil?
-      redirect_to root_path
+      redirect_to new_user_session_path
     elsif already_liked
-      @like = Like.where(user_id: current_user.id, tweet_id: params[:tweet_id]).first
-      @like.delete
+      already_liked.destroy
+      redirect_to request.referer
     else
       @tweet = Tweet.find(params[:tweet_id])
       @like = @tweet.likes.create(user_id: current_user.id)
+      redirect_to request.referer
     end
-    redirect_to request.referer
   end
 
   # rubocop:enable Metrics/AbcSize
@@ -22,6 +22,6 @@ class LikesController < ApplicationController
   private
 
   def already_liked
-    Like.exists?(user_id: current_user.id, tweet_id: params[:tweet_id])
+    Like.where(user_id: current_user.id, tweet_id: params[:tweet_id]).first
   end
 end

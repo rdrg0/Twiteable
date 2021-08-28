@@ -183,13 +183,17 @@
 
 .btn--profile {
   /* width: 113px; */
-  height: 28px;
-  flex: none;
+  height: 28px;  
   font-size: 12px;
-  line-height: 16px;
+  line-height: 16px;  
 }
 
 .btn--link {
   color: white;
   text-decoration: none;
+}
+
+.btn--padding {
+
+  padding: 0px 108px 0px 108px;
 }

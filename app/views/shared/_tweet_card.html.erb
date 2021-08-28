@@ -1,4 +1,4 @@
-<% tweets.reverse.each do |tweet|%>
+<% tweets.order(:created_at).each do |tweet|%>
         <div class="tweet-card bg-white shadow">
           <div class="content-row mb-8">
 
@@ -59,7 +59,7 @@
                   <%= image_tag 'Iconlikes.svg' %>
                   <%end%>
                 <% end %>
-                <%= tweet.likes.count || 0 %>
+                <%= tweet.likes_count || 0 %>
               </div>
             </div>
           </div>

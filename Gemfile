@@ -24,6 +24,7 @@ gem 'jbuilder', '~> 2.7'
 
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
+gem 'open-uri'
 
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.4.2', require: false
@@ -37,6 +38,7 @@ end
 gem 'dotenv-rails'
 gem 'omniauth-github', github: 'omniauth/omniauth-github', branch: 'master'
 gem 'omniauth-rails_csrf_protection'
+gem 'pundit'
 
 group :development do
   # Access an interactive console on exception pages or by calling 'console' anywhere in the code.

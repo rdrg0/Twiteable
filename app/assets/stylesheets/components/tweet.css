@@ -43,6 +43,14 @@
   text-align: center;
 }
 
+.btn a {
+  text-decoration: none;
+  color: white;
+}
+
+.no-link {
+  text-decoration: none;
+}
 
 
 

@@ -94,6 +94,9 @@
 .btn--secondary {
   color: #757575;
   background-color: var(--secondary-300);
+  align-content: center;
+  text-decoration: none;
+  color: white;
 }
 .btn--secondary:hover {
   background-color: var(--secondary-400);

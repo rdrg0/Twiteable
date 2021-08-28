@@ -33,12 +33,12 @@
           <div class="content-row space-between">
             <div class="content-row ai-center gap-24">
               <div>
-                <%= link_to '#', method: :delete do %>
+                <%= link_to tweet_path(tweet), method: :delete do %>
                   <%= image_tag 'Icontrash.svg' %>
                 <% end %>
               </div>
               <div>
-                <%= link_to '#', method: :patch do %>
+                <%= link_to edit_tweet_path(tweet) do %>
                   <%= image_tag 'Iconpencil.svg' %>
                 <% end %>
               </div>

@@ -64,10 +64,17 @@ body {
 .content--xs {
   font-size: 12px;
   line-height: 16px;
+  font-family: var(--primary-font);
+  font-weight: 400;
+  letter-spacing: 1.5px;
 }
 
 .overline {
   letter-spacing: 1.5px;
+  text-transform: uppercase;
+}
+
+.uppercase {
   text-transform: uppercase;
 }
 

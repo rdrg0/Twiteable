@@ -1,36 +1,54 @@
-<h2>Sign in to your account</h2>
+<section >
+  <div class="container">
 
-<div> 
-  <p>Continue with</p>
-  <div>
-  <p>
-    <%= link_to 'Github', user_github_omniauth_authorize_path, method: :post%>
-  </p>
-  </div>
-  <span>Or</span>
-  <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-    <div class="field">
-      <%= f.label :email %><br />
-      <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
-    </div>
+    <h2 class= "heading--sm text-center">Sign in to your account</h2>
 
-    <div class="field">
-      <%= f.label :password %><br />
-      <%= f.password_field :password, autocomplete: "current-password" %>
-    </div>
+    <div class = "generic-container sign-in-container"> 
+      <p class = "content--xs uppercase text-center">Continue with </p>
+      <button class ="btn btn--secondary btn--medium">
+        <%= link_to 'Github', user_github_omniauth_authorize_path, method: :post%>
+      </button>
+      <span class="content--xs uppercase text-center">Or</span>
+      <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+        <div class="input input--full-width">
+          <%= f.label :email, class: "content--xs overline" %><br />
+          <div class="input__container">
+            <%= f.email_field :email, placeholder: "john@ecample.com", class: "input__content" %>
+          </div>
+          <% if resource.errors.messages[:email].any? %>
+            <span class="content--sm input__error-message"><%= resource.errors.messages[:email].join(", ")%></span>
+          <% end %>
+        </div>
 
-    <% if devise_mapping.rememberable? %>
-      <div class="field">
-        <%= f.check_box :remember_me %>
-        <%= f.label :remember_me %>
+        <div class="flex gap-16 mb-8">
+          <div class="input input--full-width">
+            <%= f.label :password, class: "content--xs overline" %><br />
+            <div class="input__container">
+              <%= f.password_field :password, placeholder: "******", class: "input__content"  %>
+            </div>
+          </div>
+        </div>
+
+        <% if devise_mapping.rememberable? %>
+          <div class="check mb-8">
+            <%= f.check_box :remember_me, class: "check__input" %>
+            <div class="check__text-container">
+              <%= f.label :remember_me, class:"content--sm" %>
+            </div>
+          </div>
+        <% end %>
+
+        <div class="content--xs uppercase text-center">
+          <%= f.submit "Log in", class: "btn btn--medium btn--primary btn--full-width" %>
+        </div>
+      <% end %>
+      <p class="section--xs content-small-regular gray-400 text-center">Don’t have an account?</p>
+      <div class = "text-center">
+        <%= link_to "Create an account", new_registration_path(resource_name), class: "content--sm primary-500" %><br />
       </div>
-    <% end %>
-
-    <div class="actions">
-      <%= f.submit "Log in" %>
     </div>
-  <% end %>
-</div>
-<%#= render "devise/shared/links" %>
+    <%#= render "devise/shared/links" %>
+  </div>
+</section>
 
 

@@ -41,5 +41,5 @@ end
 private
 
 def tweet_params
-  params.require(:tweet).permit(:body, :user_id)
+  params.require(:tweet).permit(:body, :user_id, :replied_to_id)
 end

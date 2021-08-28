@@ -12,6 +12,7 @@ class LikesController < ApplicationController
     end
     redirect_to request.referer
   end
+
   # rubocop:enable Metrics/AbcSize
   def index
     @user = User.find(params[:user_id])

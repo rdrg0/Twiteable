@@ -44,6 +44,11 @@ body {
   line-height: 28px;
 }
 
+.heading--xxs {
+  font-size: 16px;
+  line-height: 24px;
+}
+
 .content--xl {
   font-size: 20px;
   line-height: 28px;

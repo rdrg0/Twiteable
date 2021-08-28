@@ -1,7 +1,5 @@
-<section >
-  <div>
 
-    <h2 class= "heading--sm text-center">Sign in to your account</h2>
+    <h2 class= "headind--m text-center">Sign in to your account</h2>
 
     <div class = "generic-container sign-in-container"> 
       <p class = "content--xs uppercase text-center">Continue with </p>
@@ -11,7 +9,7 @@
       <span class="content--xs uppercase text-center">Or</span>
       <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
         <div class="input input--full-width">
-          <%= f.label :email, class: "content--xs overline" %><br />
+          <%= f.label :email, class: "content--xs overline" %>
           <div class="input__container">
             <%= f.email_field :email, placeholder: "john@ecample.com", class: "input__content" %>
           </div>
@@ -19,10 +17,9 @@
             <span class="content--sm input__error-message"><%= resource.errors.messages[:email].join(", ")%></span>
           <% end %>
         </div>
-
-        <div class="flex gap-16 mb-8">
+        <div class="flex gap-16 mb-8 mt-16">
           <div class="input input--full-width">
-            <%= f.label :password, class: "content--xs overline" %><br />
+            <%= f.label :password, class: "content--xs overline" %>
             <div class="input__container">
               <%= f.password_field :password, placeholder: "******", class: "input__content"  %>
             </div>
@@ -42,13 +39,11 @@
           <%= f.submit "Log in", class: "btn btn--medium btn--primary btn--full-width" %>
         </div>
       <% end %>
-      <p class="section--xs content-small-regular gray-400 text-center">Don’t have an account?</p>
+      <p class="content--sm content-small-regular gray-400 text-center">Don’t have an account?</p>
       <div class = "text-center">
-        <%= link_to "Create an account", new_registration_path(resource_name), class: "content--sm primary-500" %><br />
+        <%= link_to "Create an account", new_registration_path(resource_name), class: "content--sm primary-500 no-link" %><br />
       </div>
     </div>
     <%#= render "devise/shared/links" %>
-  </div>
-</section>
 
 

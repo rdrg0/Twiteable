@@ -22,7 +22,7 @@
   display: flex;
   align-items: center;
   gap: 8px;
-  min-width: 328px;
+  min-width: 296px;
 }
 
 .select__input:hover {
@@ -54,7 +54,7 @@
 
 .input__container textarea {
   height: 74px;
-  resize: none;  
+  resize: none;
 }
 
 .input__container:focus-within {

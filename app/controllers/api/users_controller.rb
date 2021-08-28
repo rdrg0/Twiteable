@@ -1,40 +1,32 @@
-class UsersController < ApplicationController
+class Api::UsersController < ApiController
   # GET /users/:id
+  def index
+    render json: User.all
+  end
+
   def show
     @user = User.find(params[:id])
-    @tweets = @user.tweets
-  end
-
-  # GET /users/new
-  def new
-    @user = User.new
-  end
-
-  # GET /users/:id/edit
-  def edit
-    @user = User.find(params[:id])
+    render json: @user
   end
 
   # POST /users
   def create
     @user = User.new(user_params)
-
-    if @user.save
-      redirect_to @user
-    else
-      render :new
-    end
+    @user.save
+    render json: @user
   end
 
   # PATCH/PUT /users/:id
   def update
     @user = User.find(params[:id])
+    @user.update(user_params)
+    render json: @user
+  end
 
-    if @user.update(user_params)
-      redirect_to root_path
-    else
-      render :edit
-    end
+  def destroy
+    @user = User.find(params[:id])
+    @user.destroy
+    head :no_content
   end
 
   private

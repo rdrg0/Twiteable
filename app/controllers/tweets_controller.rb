@@ -15,6 +15,13 @@ class TweetsController < ApplicationController
     @tweet.save
     redirect_to request.referer
   end
+
+  # delete /tweets/:id
+  def destroy
+    @tweet = Tweet.find(params[:id])
+    @tweet.destroy
+    redirect_to '/tweets'
+  end
 end
 
 private

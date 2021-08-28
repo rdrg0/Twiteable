@@ -38,11 +38,6 @@ class User < ApplicationRecord
     # pp auth
     authentication.user
   end
-
-  # def continue_auth(_auth)
-  #   authentication.user = @user
-  #   authentication.save if @user.persisted?
-  # end
   # rubocop:enable Metrics/AbcSize, Metrics/MethodLength
   has_one_attached :avatar
 end

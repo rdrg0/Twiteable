@@ -1,14 +1,17 @@
-<div>
+<div class="container flex-col align-center">
   <div>
     <h1>Profile</h1>
   </div>
 
-  <div>
-    <p><%= image_tag @user.avatar %></p>
-    <p><%= @user.username %></p>
-    <p><%= "@" + @user.name %></p>
-    <p><%= "Joined on " + I18n.l(@user.created_at, format: '%B, %d de %Y') %></p>
-    <%= link_to 'Edit Profile', edit_user_registration_path%>
+  <div class="profile flex-col align-center">
+    <%= image_tag(@user.avatar, class: "profile-avatar") %>
+    <div class="heading heading--xs"> <%= @user.name %></div>
+    <div class="heading-l"><%= "@" + @user.username %></div>
+    <div class="heading-l"><%= "Joined on " + I18n.l(@user.created_at, format: '%B, %d de %Y') %></div>
+  </div>
+    <div class="btn btn--primary btn--profile btn--fit-content mt-16">
+    <%= link_to 'Edit Profile', edit_user_registration_path, class:"btn--link"%>
+    </div>
   </div>
 
   

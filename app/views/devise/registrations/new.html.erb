@@ -1,6 +1,5 @@
 <h2 class= "headind--m text-center">Create an account</h2>
 
-
 <div class = "generic-container sign-in-container"> 
   <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
     <%= render "devise/shared/error_messages", resource: resource %>
@@ -46,7 +45,7 @@
     </div>
 
     <div class="content--xs uppercase text-center">
-      <%= f.submit "Sign up", class: "btn btn--medium btn--primary btn--full-width mt-16 "  %>
+      <%= f.submit "Sign up", class: "btn btn--medium btn--primary btn--full-width mt-16"%>
     </div>
   <% end %>
 

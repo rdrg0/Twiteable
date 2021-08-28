@@ -19,17 +19,17 @@
           <span></span>
           <span></span>
           <div id="menu">           
-            <div><%= link_to "Profile", '#', class: "navbar__link justify-center" %></div>
+            <div class ="justify-center-menu"><%= link_to "Profile", '#', class: "navbar__link justify-center" %></div>
             
               <% if user_signed_in? %>
-                <div class="flex  justify-center ">
+                <div class="flex  justify-center-menu ">
                 <%= link_to 'Logout', destroy_user_session_path, method: :delete, class: "btn btn--secondary width-85" %>
                 </div>
               <% else %>
-                <div class="flex  justify-center ">
+                <div class="flex  justify-center-menu ">
                 <%= link_to 'Login', new_user_session_path, class: "btn auth-btn btn--secondary width-70" %>
                 </div>
-                <div class="flex  justify-center ">
+                <div class="flex  justify-center-menu ">
                 <%= link_to 'Sign Up', new_user_registration_path, class: "btn auth-btn btn--primary width-90" %>
                 </div>
               <% end %>

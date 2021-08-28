@@ -1,7 +1,7 @@
 class TweetsController < ApplicationController
   def index
     @tweets = Tweet.all
-    @user = User.last
+    @user = current_user
   end
 
   def show
@@ -16,10 +16,6 @@ class TweetsController < ApplicationController
     redirect_to request.referer
   end
 end
-
-# def create
-#   user = User.first  # current_user
-# end
 
 private
 

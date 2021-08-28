@@ -44,6 +44,11 @@ body {
   line-height: 28px;
 }
 
+.heading--xxs {
+  font-size: 16px;
+  line-height: 24px;
+}
+
 .content--xl {
   font-size: 20px;
   line-height: 28px;
@@ -59,10 +64,17 @@ body {
 .content--xs {
   font-size: 12px;
   line-height: 16px;
+  font-family: var(--primary-font);
+  font-weight: 400;
+  letter-spacing: 1.5px;
 }
 
 .overline {
   letter-spacing: 1.5px;
+  text-transform: uppercase;
+}
+
+.uppercase {
   text-transform: uppercase;
 }
 

@@ -13,4 +13,8 @@ Rails.application.routes.draw do
     resources :likes
     # resources :liked_tweets, only: %i[show]
   end
+
+  namespace :api do
+    resources :tweets, only: %i[index show create update destroy]
+  end
 end

@@ -18,12 +18,8 @@ This application runs
 
 - ruby version '2.7.0'
 - rails version '6.0'
-
-## Testing instructions
-
-```
-bundle exec rspec spec/requests
-```
+- rspec core '3.10'
+- rspec-rails '5.0'
 
 ## Endpoints
 
@@ -42,3 +38,12 @@ Tweet:
 - GET /api/tweets/:id
 - PATCH /api/tweets/:id
 - DELETE /api/tweets/:id
+
+## Testing
+
+RSpec is used to test these endpoints.
+To execute them, run
+
+```
+bundle exec rspec spec/requests
+```

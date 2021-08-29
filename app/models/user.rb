@@ -25,7 +25,7 @@ class User < ApplicationRecord
       @user = find_or_create_by(email: auth.info.email) do |new_user|
         new_user.name = auth.info.name
         new_user.username = auth.info.nickname
-        # new_user.avatar.attach = auth.info.image.gsub('http', 'https')
+        new_user.avatar.attach(io: File.open('app/assets/images/Imagedieguito.png'), filename: 'Imagedieguito.png')
         # downloaded_image = open(auth.info.image)
         # new_user.avatar.attach(io: downloaded_image , filename: "foo.jpg")
         new_user.password = '123456' # Devise.friendly_token[0, 20]

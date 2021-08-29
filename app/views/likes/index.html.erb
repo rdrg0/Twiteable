@@ -4,17 +4,28 @@
   
 
   <div class="profile flex-col align-center">
-    <%= image_tag(@user.avatar, class: "profile-avatar") %>
+    <%if @user.avatar.attached?%>
+      <div class="profile-cropper">
+        <%=image_tag @user.avatar %>
+      </div>
+    <% else%>
+      <div class="profile-cropper">
+        <%= image_tag('Imageanonymus.png')%>
+      </div>
+    <% end%>
     <div class="heading heading--xs"> <%= @user.name %></div>
     <div class="heading-l"><%= "@" + @user.username %></div>
-    <div class="heading-l"><%= "Joined on " + I18n.l(@user.created_at, format: '%B %d, %Y') %></div>
+    <div class="content gray-300 mb-8"><%= "Joined on " + I18n.l(@user.created_at, format: '%B %d, %Y') %></div>
   </div>
 
+  <% if @user == current_user %>    
+  
   <div class="btn--padding">
     <div class="btn btn--primary btn--small btn--profile  mt-16 mb-16">
     <%= link_to 'Edit Profile', edit_user_registration_path, class:"btn--link"%>
     </div>
   </div>
+  <% end %>
   
   <%# ---------------------------------------------NVABAR ---------------------------------------------------------------- %>
   

@@ -1,12 +1,12 @@
-<div class="container">
+<div>
         <div class="tweet-card bg-white shadow">
           <div class="content-row mb-8">
 
-            <div>
+            <div class="tweet-cropper">
               <%if @tweet.user.avatar.attached?%>
-                  <%=image_tag(@tweet.user.avatar, class: 'imagen en circular tamaño pequeño')%>
+                  <%=image_tag @tweet.user.avatar%>
               <% else%>
-                  <%= image_tag('Imageanonymus.png', class: 'imagen en circular tamaño pequeño')%>
+                  <%= image_tag('Imageanonymus.png')%>
               <% end%>
             </div>
 
@@ -67,9 +67,11 @@
 
         </div>
   <!--tweet-->
-    <hr>
+    <div class="division"></div>
     
 <!--reply form-->
+
+<% if @tweet.user.id == current_user %> 
   <%= form_with model: @new_tweet do |form| %>
       <div class="input__container flex-col bg-white mb-16">
         <%= form.hidden_field :replied_to_id, value: @tweet.id %>
@@ -78,5 +80,6 @@
         <%= form.submit "Tweet", class: 'btn btn--primary ml-auto' %>
       </div>    
   <% end %>
+<% end %>
   <!--replies list-->
   <%= render partial: 'shared/tweet_card', locals: { tweets: @tweet.replies } %>

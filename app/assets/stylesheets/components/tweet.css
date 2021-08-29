@@ -43,7 +43,7 @@
   text-align: center;
 }
 
-.btn a {
+.btn a, a.btn {
   text-decoration: none;
   color: white;
 }
@@ -53,4 +53,41 @@
 }
 
 
+
+html, body {
+  height: 100%;
+  
+}
+
+.mh-100 {
+  min-height: 100%;
+  
+}
+
+.no-tweets{
+  height: 30vh;
+}
+
+.tweet-cropper {
+  width: 48px;
+  height: 48px;
+  position: relative;
+  overflow: hidden;
+  border-radius: 50%;
+}
+
+.profile-cropper {
+  width: 96px;
+  height: 96px;
+  position: relative;
+  overflow: hidden;
+  border-radius: 50%;
+}
+
+.profile-cropper img, .tweet-cropper img {
+  display: inline;
+  margin: 0 auto;
+  height: 100%;
+  width: auto;
+}
 

@@ -36,10 +36,10 @@ class TweetsController < ApplicationController
     authorize @tweet
     redirect_to '/tweets'
   end
-end
 
-private
+  private
 
-def tweet_params
-  params.require(:tweet).permit(:body, :user_id, :replied_to_id)
+  def tweet_params
+    params.require(:tweet).permit(:body, :user_id, :replied_to_id)
+  end
 end

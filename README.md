@@ -1,24 +1,49 @@
-# README
+# Tweetable
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+This is Tweetable a simpler version of Twitter.
 
-Things you may want to cover:
+## Instructions
 
-* Ruby version
+- Clone this repo on your local machine.
+- Run `bundle install`
+- Setup your datababase:
+  - `rails db:create`
+  - `rails db:migrate`
+  - `rails db:seed`
+- Start the server `rails s`
 
-* System dependencies
+## Software version
 
-* Configuration
+This application runs
 
-* Database creation
+- ruby version '2.7.0'
+- rails version '6.0'
+- rspec core '3.10'
+- rspec-rails '5.0'
 
-* Database initialization
+## Endpoints
 
-* How to run the test suite
+Here the list of available endpoints.
 
-* Services (job queues, cache servers, search engines, etc.)
+Users:
 
-* Deployment instructions
+- GET /api/users
+- GET /api/users/:id
+- PATCH /api/users/:id
+- DELETE /api/users/:id
 
-* ...
+Tweet:
+
+- GET /api/tweets
+- GET /api/tweets/:id
+- PATCH /api/tweets/:id
+- DELETE /api/tweets/:id
+
+## Testing
+
+RSpec is used to test these endpoints.
+To execute them, run
+
+```
+bundle exec rspec spec/requests
+```

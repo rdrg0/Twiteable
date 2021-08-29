@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-RSpec.describe TweetsPolicy, type: :policy do
+RSpec.describe TweetPolicy, type: :policy do
   let(:user) { User.new }
 
   subject { described_class }

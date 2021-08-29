@@ -31,8 +31,13 @@
           </div>
           
           <div class="content-row space-between">
+
+            
+              
+            
             <div class="content-row ai-center gap-24">
               <div>
+                <% if @tweet.user == current_user %>
                 <%= link_to tweet_path(@tweet), method: :delete do %>
                   <%= image_tag 'Icontrash.svg' %>
                 <% end %>
@@ -41,8 +46,10 @@
                 <%= link_to edit_tweet_path(@tweet) do %>
                   <%= image_tag 'Iconpencil.svg' %>
                 <% end %>
+                <% end %>
               </div>
             </div>
+            
 
             <div class="content-row">
               <div class="content-row ai-center">
@@ -71,7 +78,7 @@
     
 <!--reply form-->
 
-<% if @tweet.user.id == current_user %> 
+<% if current_user %> 
   <%= form_with model: @new_tweet do |form| %>
       <div class="input__container flex-col bg-white mb-16">
         <%= form.hidden_field :replied_to_id, value: @tweet.id %>

@@ -9,7 +9,7 @@
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
   <body class="bg-white">
-  <div class="container bg-gray-100 shadow border-r">
+  <div class="container bg-gray-100 shadow border-r mh-100">
     <nav id="navbar" class="flex" role="navigation">
       
         <div>
@@ -24,19 +24,21 @@
           <span></span>
           <span></span>
           <div id="menu">           
-            <div class ="justify-center-menu"><%= link_to "Profile", '#', class: "navbar__link justify-center" %></div>
+            
             
               <% if user_signed_in? %>
+                
+                <div><p class="content content--sm text-center gray-300">Thanks for using Tweetable!</p></div>
+                <div class ="justify-center-menu"><%= link_to "Profile", user_path(current_user), class: "navbar__link justify-center" %></div>
                 <div class="flex  justify-center-menu ">
-                <%= link_to 'Logout', destroy_user_session_path, method: :delete, class: "btn btn--secondary width-85" %>
+                <%= link_to 'Logout', destroy_user_session_path, method: :delete, class: "btn auth-btn btn--secondary width-70" %>
                 </div>
               <% else %>
+                
+                <p class="content content--sm text-center gray-300">Log in to start the tweeting madness!</p>
                 <div class="flex  justify-center-menu ">
-                <%= link_to 'Login', new_user_session_path, class: "btn auth-btn btn--secondary width-70" %>
-                </div>
-                <div class="flex  justify-center-menu ">
-                <%= link_to 'Sign Up', new_user_registration_path, class: "btn auth-btn btn--primary width-90" %>
-                </div>
+                <%= link_to 'Login', new_user_session_path, class: "btn auth-btn btn--primary width-70" %>
+                </div>                
               <% end %>
 
           </div>
@@ -55,31 +57,34 @@
     <div class="copyright mt-10 content--sm">© 2021 - Codeable Tweetable</div>
     <div class="built-with mt-10 content--sm">Built with ♥ by</div>
     <div class="students mt-10 flex-row gap-12 space-between">
-      <div class="student flex-row gap-6 content--xs">
+      <div class="student flex-row gap-6 content--xs baseline">
       <%= link_to "https://github.com/aldo9191", class: "link flex-row" do %>
-        <div><%= image_tag("linkedin_icon.svg") %></div>
-        <div>Aldo Canales</div>
+        <div><%= image_tag("linkedin_icon.svg") %></div>        
       <% end %>
+      <p class="content content--xs">Aldo Canales</p>
       </div>
-      <div class="student flex-row gap-6 content--xs">
+      <div class="student flex-row gap-6 content--xs baseline">
       <%= link_to "https://github.com/dortizp", class: "link flex-row" do %>
-        <div><%= image_tag("linkedin_icon.svg") %></div>
-        <div>David Ortiz</div>
+        <div><%= image_tag("linkedin_icon.svg") %></div>                
       <% end %>
+      <p class="content content--xs">David Ortiz</p>
       </div>
-      <div class="student flex-row gap-6 content--xs">
-      <%= link_to "https://github.com/natlines1492", class: "link flex-row" do %>
-        <div><%= image_tag("linkedin_icon.svg") %></div>
-        <div>Nat Linares</div>
-      <% end %>
-      </div>
+      
     </div>
     <div class="students mt-10 flex-row gap-12 space-between">
-      <%= link_to "https://github.com/rdrg0", class: "link flex-row" do %>
-        <div><%= image_tag("linkedin_icon.svg") %></div>
-        <p>Rodrigo Arriaran</p> 
+      <div class="student flex-row gap-6 content--xs baseline">
+      <%= link_to "https://github.com/natlines1492", class: "link flex-row" do %>
+        <div><%= image_tag("linkedin_icon.svg") %></div>        
       <% end %>
+      <p class="content content--xs">Nat Linares</p>
       </div>
+      <div class="student flex flex-row gap-6 content--xs baseline">
+      <%= link_to "https://github.com/rdrg0", class: "link flex-row" do %>
+        <div><%= image_tag("linkedin_icon.svg") %></div>        
+      <% end %>
+      <p class="content content--xs">Rodrigo Arriaran</p>
+      </div>
+    </div>
   </div>
   </body>
 </html>

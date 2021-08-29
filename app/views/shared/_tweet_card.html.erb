@@ -1,12 +1,16 @@
-<% tweets.order(:created_at).each do |tweet|%>
+<% tweets.order(:created_at).reverse.each do |tweet|%>
         <div class="tweet-card bg-white shadow">
           <div class="content-row mb-8">
 
             <div>
               <%if tweet.user.avatar.attached?%>
-                  <%=image_tag(tweet.user.avatar, class: 'imagen en circular tamaño pequeño')%>
+                <div class="tweet-cropper">
+                  <%=image_tag(tweet.user.avatar)%>
+                </div>
               <% else%>
-                  <%= image_tag('Imageanonymus.png', class: 'imagen en circular tamaño pequeño')%>
+                <div class="tweet-cropper">
+                <%= image_tag('Imageanonymus.png')%>
+                </div>
               <% end%>
             </div>
 
@@ -33,13 +37,17 @@
           <div class="content-row space-between">
             <div class="content-row ai-center gap-24">
               <div>
+                <% if tweet.user == current_user %>
                 <%= link_to tweet_path(tweet), method: :delete do %>
                   <%= image_tag 'Icontrash.svg' %>
                 <% end %>
+                <% end %>
               </div>
               <div>
-                <%= link_to edit_tweet_path(tweet) do %>
-                  <%= image_tag 'Iconpencil.svg' %>
+                <% if tweet.user == current_user %>
+                  <%= link_to edit_tweet_path(tweet) do %>
+                    <%= image_tag 'Iconpencil.svg' %>
+                  <% end %>
                 <% end %>
               </div>
             </div>
@@ -66,4 +74,10 @@
 
 
         </div>
-      <%end%>
+<%end%>
+
+<% if tweets.empty? %>
+<div class="no-tweets">
+  <p class="content content--sm gray-300 text-center">No tweets yet</p>
+</div>
+<% end %>

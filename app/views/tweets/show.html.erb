@@ -82,7 +82,7 @@
   <%= form_with model: @new_tweet do |form| %>
       <div class="input__container flex-col bg-white mb-16">
         <%= form.hidden_field :replied_to_id, value: @tweet.id %>
-        <%= form.hidden_field :user_id, value: @tweet.user.id %>
+        <%= form.hidden_field :user_id, value: current_user.id %>
         <%= form.text_area :body, placeholder: "Remember to think before you write" , class:'input__content' %>
         <%= form.submit "Tweet", class: 'btn btn--primary ml-auto' %>
       </div>    

@@ -25,17 +25,13 @@ class User < ApplicationRecord
       @user = find_or_create_by(email: auth.info.email) do |new_user|
         new_user.name = auth.info.name
         new_user.username = auth.info.nickname
-        new_user.avatar.attach(io: File.open('app/assets/images/Imagedieguito.png'), filename: 'Imagedieguito.png')
-        # downloaded_image = open(auth.info.image)
-        # new_user.avatar.attach(io: downloaded_image , filename: "foo.jpg")
+        new_user.avatar.attach(io: File.open('app/assets/images/Imageanonymus.png'),
+                               filename: 'Imageanonymus.png')
         new_user.password = '123456' # Devise.friendly_token[0, 20]
       end
       authentication.user = @user
       authentication.save if @user.persisted?
     end
-    # pp @user
-    # pp open(auth.info.image)
-    # pp auth
     authentication.user
   end
   # rubocop:enable Metrics/AbcSize, Metrics/MethodLength

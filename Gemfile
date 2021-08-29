@@ -36,6 +36,7 @@ group :development, :test do
 end
 
 gem 'dotenv-rails'
+gem 'image_processing'
 gem 'omniauth-github', github: 'omniauth/omniauth-github', branch: 'master'
 gem 'omniauth-rails_csrf_protection'
 gem 'pundit'

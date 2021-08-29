@@ -17,7 +17,7 @@
             <span class="content--sm input__error-message"><%= resource.errors.messages[:email].join(", ")%></span>
           <% end %>
         </div>
-        <div class="flex gap-16 mb-8 mt-16">
+        <div class="flex gap-16 mb-16 mt-16">
           <div class="input input--full-width">
             <%= f.label :password, class: "content--xs overline" %>
             <div class="input__container">
@@ -26,14 +26,7 @@
           </div>
         </div>
 
-        <% if devise_mapping.rememberable? %>
-          <div class="check mb-8">
-            <%= f.check_box :remember_me, class: "check__input" %>
-            <div class="check__text-container">
-              <%= f.label :remember_me, class:"content--sm" %>
-            </div>
-          </div>
-        <% end %>
+        
 
         <div class="content--xs uppercase text-center">
           <%= f.submit "Log in", class: "btn btn--medium btn--primary btn--full-width" %>

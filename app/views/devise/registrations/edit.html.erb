@@ -27,7 +27,9 @@
 
     <div class="field">
       <%= f.label :avatar, class: "content--xs overline" %><br />
-      <%= image_tag current_user.avatar, class: 'imagen en circular tamaño pequeño' %>
+      <div class="profile-cropper">
+        <%= image_tag current_user.avatar, class: 'imagen en circular tamaño pequeño' %>
+      </div>
       <%= f.file_field :avatar, class: "input__content content--xs"  %>
     </div>
 

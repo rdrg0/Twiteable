@@ -1,25 +1,35 @@
-<div>
-  <h2>Likes</h2>
-  <% @user.liked_tweets.each do |tweet|%>
-    <div>
-      <%= params %>
-      <%= link_to user_show_path(tweet.user) do %>
-        <%if tweet.user.avatar.attached?%>
-            <%= image_tag(tweet.user.avatar, class: 'imagen en circular tamaño pequeño')%>
-        <% else%>
-            <%= image_tag('Imageanonymus.png', class: 'imagen en circular tamaño pequeño')%>
-        <% end%>
-      <%end%>
-      <%= link_to tweet_path(tweet) do %>
-        <div>
-          <div><%= tweet.user.username + " @" + tweet.user.name %></div>
-          <div><%= time_ago_in_words(tweet.updated_at)%></div>
-        </div>
-        <div>
-          <p><%= tweet.body %></p>
-        </div>
-      <%end%>
-      </div>
+<%# --------------------------------------------- PROFILE ---------------------------------------------------------------- %>
+
+  <h2 class="heading heading--sm text-center mb-16">Profile</h2>
+  
+
+  <div class="profile flex-col align-center">
+    <%= image_tag(@user.avatar, class: "profile-avatar") %>
+    <div class="heading heading--xs"> <%= @user.name %></div>
+    <div class="heading-l"><%= "@" + @user.username %></div>
+    <div class="heading-l"><%= "Joined on " + I18n.l(@user.created_at, format: '%B %d, %Y') %></div>
+  </div>
+
+  <div class="btn--padding">
+    <div class="btn btn--primary btn--small btn--profile  mt-16 mb-16">
+    <%= link_to 'Edit Profile', edit_user_registration_path, class:"btn--link"%>
     </div>
-  <%end%>
-</div>
+  </div>
+  
+  <%# ---------------------------------------------NVABAR ---------------------------------------------------------------- %>
+  
+
+  <div class="flex gap-16 mb-16 pl-32 pr-32">
+    <div class ="navbar__item w-100">
+      <%= link_to "Tweets", @user, class: "navbar__link" %>
+    </div>
+    <div class="navbar__item active w-100">
+      <%= link_to "Likes", user_likes_path(@user), class: "navbar__link" %>
+    </div>        
+  </div>
+
+
+<%# --------------------------------------------- TWEETS ---------------------------------------------------------------- %>  
+    
+<%= render partial: "shared/tweet_card", locals: {tweets: @tweets} %>
+  

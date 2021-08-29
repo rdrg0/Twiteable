@@ -94,6 +94,9 @@
 .btn--secondary {
   color: #757575;
   background-color: var(--secondary-300);
+  align-content: center;
+  text-decoration: none;
+  color: white;
 }
 .btn--secondary:hover {
   background-color: var(--secondary-400);
@@ -183,13 +186,17 @@
 
 .btn--profile {
   /* width: 113px; */
-  height: 28px;
-  flex: none;
+  height: 28px;  
   font-size: 12px;
-  line-height: 16px;
+  line-height: 16px;  
 }
 
 .btn--link {
   color: white;
   text-decoration: none;
+}
+
+.btn--padding {
+
+  padding: 0px 108px 0px 108px;
 }
